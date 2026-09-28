@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Travel and Care | Nicosia and Cyprus Islandwide</title>
+    <meta name="description" content="Premium Pet Care στη Λευκωσία και Pet Travel - Taxi Παγκύπρια. Ασφαλής, άνετη μεταφορά και φροντίδα κατοικιδίων.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           ROOT VARIABLES & DESIGN TOKENS
+           ========================================================================== */
+        :root {
+            --primary: #FFF200;
+            --primary-dark: #E6DA00; 
+            --primary-light: #FFFECC; 
+            --accent-red: #E53935;
+            --accent-green: #2ECC71;
+            --dark-900: #0F172A;
+            --dark-800: #1E293B;
+            --dark-700: #334155;
+            --gray-500: #64748B;
+            --gray-200: #E2E8F0;
+            --gray-100: #F1F5F9;
+            --gray-50: #F8FAFC;
+            --white: #FFFFFF;
+            
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            
+            --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 20px 45px rgba(15, 23, 42, 0.12);
+
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-full: 9999px;
+
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ==========================================================================
+           BASE & RESET
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--gray-50);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(255, 242, 0, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(46, 204, 113, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(255, 242, 0, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--dark-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* PREMIUM GLOBAL PAWS */
+        .global-paws {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .bg-paw {
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.09;
+            /* Εφαρμογή του animation σε όλες τις πατούσες */
+            animation: floatPaw ease-in-out infinite;
+        }
+        
+        /* Ορίζουμε τη γωνία (--rot) και διαφορετικούς χρόνους/καθυστερήσεις για να φαίνεται φυσικό */
+        .paw-1 { top: 22%; left: 5%; font-size: 5rem; --rot: -20deg; animation-duration: 12s; animation-delay: 0s; }
+        .paw-2 { top: 30%; right: 10%; font-size: 7rem; --rot: 25deg; animation-duration: 18s; animation-delay: -5s; }
+        .paw-3 { top: 60%; left: 15%; font-size: 4rem; --rot: -15deg; animation-duration: 14s; animation-delay: -2s; }
+        .paw-4 { bottom: 15%; right: 20%; font-size: 6rem; --rot: 35deg; animation-duration: 20s; animation-delay: -8s; }
+        .paw-5 { bottom: 5%; left: 40%; font-size: 8rem; --rot: -10deg; animation-duration: 16s; animation-delay: -4s; }
+
+        /* Το Keyframe του animation: Μετακίνηση πάνω-κάτω κατά 25px και ελαφριά περιστροφή 6 μοιρών */
+        @keyframes floatPaw {
+            0% { transform: translateY(0) rotate(var(--rot)); }
+            50% { transform: translateY(-25px) rotate(calc(var(--rot) + 6deg)); }
+            100% { transform: translateY(0) rotate(var(--rot)); }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==========================================================================
+           TYPOGRAPHY & UTILITIES
+           ========================================================================== */
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            color: var(--dark-900);
+            font-weight: 700;
+            letter-spacing: normal;
+            word-spacing: 0.1em;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--primary-light);
+            color: var(--dark-900);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 242, 0, 0.4);
+        }
+
+       .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+            padding: 0 10px;
+        }
+
+        /* ==========================================================================
+           BUTTONS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: var(--radius-full);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark-900);
+            box-shadow: 0 8px 20px rgba(255, 242, 0, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 242, 0, 0.45);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark-900);
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--dark-900);
+            transform: translateY(-3px);
+        }
+
+        
+
+        /* ==========================================================================
+           NAVIGATION (HEADER)
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 10px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo-img {
+    height: 75px; /* Ή 85px αν το θες ακόμα μεγαλύτερο */
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark-700);
+            transition: var(--transition);
+            position: relative;
+            word-spacing: 0.1em;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--dark-900);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--dark-900);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-switch-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            padding: 8px 14px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark-900);
+        }
+
+        .lang-switch-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-900);
+            cursor: pointer;
+        }
+.close-menu, .menu-overlay, .drawer-call-btn {
+            display: none;
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+.premium-est {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--dark-700);
+            margin-bottom: 8px; /* Μικρύναμε το κενό για να δέσει με τον υπότιτλο */
+        }
+
+        .premium-est::before,
+        .premium-est::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 35px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .premium-subtitle {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #d4a800; /* Πλούσιο χρυσό-κίτρινο για τέλεια αναγνωσιμότητα */
+            text-shadow: 0px 4px 15px rgba(255, 242, 0, 0.4); /* Διακριτική λάμψη με το #fff200 */
+            margin-bottom: 75px; 
+            padding: 0 24px;
+            line-height: 1.5;
+        }
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+       .hero-grid {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-location-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .loc-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .loc-pill.care {
+            background: #E8F5E9;
+            color: #2E7D32;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+        }
+
+        .loc-pill.taxi {
+            background: #FFF8E1;
+            color: #F57F17;
+            border: 1px solid rgba(245, 127, 23, 0.2);
+        }
+
+        .hero-title {
+            font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+            line-height: 1.12;
+            margin-bottom: 24px;
+        }
+
+        .hero-title span.highlight {
+            color: var(--primary-dark);
+            display: inline-block;
+            text-shadow: 0px 2px 8px rgba(15, 23, 42, 0.12);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--gray-500);
+            margin: 0 auto 36px auto;
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-visual-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-visual-card::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            opacity: 0.15;
+            border-radius: 50%;
+            filter: blur(30px);
+            z-index: 0;
+        }
+
+        .hero-logo-display {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto 30px;
+            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.06));
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-badge-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-200);
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 1.25rem;
+            color: var(--dark-900);
+            font-family: var(--font-heading);
+        }
+
+        .trust-item span {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        /* ==========================================================================
+           SERVICES SECTION
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 36px 30px;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            background: var(--gray-100);
+            color: var(--dark-700);
+        }
+
+        .service-badge.island {
+            background: var(--primary-light);
+            color: var(--dark-900);
+            border: 1px solid rgba(255, 242, 0, 0.4);
+        }
+
+        .service-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background: var(--primary-light);
+            color: var(--dark-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon-box {
+            background: var(--primary);
+            transform: scale(1.08);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            margin-top: auto;
+            padding-top: 18px;
+            border-top: 1px dashed var(--gray-200);
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--dark-700);
+            margin-bottom: 8px;
+        }
+
+        .service-features li i {
+            color: var(--accent-green);
+        }
+
+        /* ==========================================================================
+           PRICE LIST (ΤΙΜΟΚΑΤΑΛΟΓΟΣ)
+           ========================================================================== */
+        .pricing-section {
+            background: transparent;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            border: 1px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-md);
+            transform: scale(1.02);
+        }
+
+        .pricing-ribbon {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--dark-900);
+            color: var(--primary);
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-header {
+            margin-bottom: 24px;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .pricing-header p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        .pricing-price {
+            margin-bottom: 28px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .pricing-price .from-text {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+        }
+
+        .pricing-price .amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--dark-900);
+        }
+
+        .pricing-price .unit {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        .pricing-list {
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .pricing-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 0.92rem;
+            color: var(--dark-700);
+        }
+
+        .pricing-list li i {
+            color: var(--accent-green);
+        }
+
+        .pricing-footer {
+            margin-top: auto;
+        }
+
+        .pricing-footer .btn {
+            width: 100%;
+        }
+
+        .pricing-note-banner {
+            margin-top: 50px;
+            background: var(--primary-light);
+            border: 1px solid rgba(255, 242, 0, 0.5);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--dark-900);
+        }
+
+        /* ==========================================================================
+           FAQS SECTION
+           ========================================================================== */
+        .faqs-container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-900);
+            cursor: pointer;
+        }
+
+        .faq-icon {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+            color: var(--gray-500);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: var(--dark-900);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .faq-answer-inner {
+            padding: 0 28px 24px;
+            color: var(--gray-500);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           CONTACT SECTION (No Form)
+           ========================================================================== */
+        .contact-section {
+            background-color: transparent;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-card-info {
+            background: #1C1C1C; /* Premium Μαύρο */
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 44px 36px;
+        }
+
+        .contact-card-info h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+        }
+
+        .contact-card-info p {
+            color: #94A3B8;
+            margin-bottom: 36px;
+            font-size: 1rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-method-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .contact-method-item h4 {
+            color: var(--white);
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .contact-method-item a, .contact-method-item span {
+            color: #CBD5E1;
+            font-size: 0.92rem;
+            transition: var(--transition);
+        }
+
+        .contact-method-item a:hover {
+            color: var(--primary);
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background: #1C1C1C; /* Premium Μαύρο */
+            color: #94A3B8;
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            margin-top: 18px;
+            font-size: 0.95rem;
+            max-width: 320px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            transition: var(--transition);
+            font-size: 0.92rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Mobile floating bar */
+        .mobile-quick-actions {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 8px 12px;
+            border-radius: var(--radius-full);
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-location-pills {
+                justify-content: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }@media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu-overlay {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(15, 23, 42, 0.6);
+                backdrop-filter: blur(4px);
+                z-index: 1000;
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.4s ease;
+            }
+
+            .menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 320px;
+                height: 100vh; /* Εφεδρικό για παλιούς browsers */
+                height: 100dvh; /* Λύνει το κόψιμο από την κάτω μπάρα */
+                background: var(--white);
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 0;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1001;
+                padding: 80px 30px 60px; /* Μεγαλύτερο κενό στο κάτω μέρος */
+                overflow-y: auto; /* Επιτρέπει το σκρολάρισμα αν δεν χωράνε όλα */
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links .nav-link {
+                width: 100%;
+                font-size: 1.15rem;
+                padding: 18px 0;
+                border-bottom: 1px solid var(--gray-200);
+                text-align: left;
+            }
+            
+            .nav-links .nav-link::after {
+                display: none;
+            }
+
+            .close-menu {
+                display: block;
+                position: absolute;
+                top: 24px;
+                right: 24px;
+                background: none;
+                border: none;
+                font-size: 1.8rem;
+                color: var(--dark-900);
+                cursor: pointer;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+           .drawer-call-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                background: var(--dark-900);
+                color: var(--primary);
+                padding: 14px 28px;
+                border-radius: var(--radius-full);
+                font-family: var(--font-heading);
+                font-weight: 700;
+                font-size: 1.1rem;
+                box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+                margin-top: auto;
+                margin-bottom: 20px; 
+                align-self: flex-end; /* Το φέρνει κάτω δεξιά */
+                border: 1px solid rgba(255, 242, 0, 0.2);
+                transition: var(--transition);
+                flex-shrink: 0;
+            }
+
+            .drawer-call-btn:active {
+                transform: scale(0.95);
+            }
+        }
+/* Κρύβει την αλλαγή γραμμής στα κινητά/tablets για φυσική ροή κειμένου */
+        @media (max-width: 992px) {
+            .desktop-br {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Premium Background Paws -->
+    <div class="global-paws">
+        <i class="fa-solid fa-paw bg-paw paw-1"></i>
+        <i class="fa-solid fa-paw bg-paw paw-2"></i>
+        <i class="fa-solid fa-paw bg-paw paw-3"></i>
+        <i class="fa-solid fa-paw bg-paw paw-4"></i>
+        <i class="fa-solid fa-paw bg-paw paw-5"></i>
+    </div>
+
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo-box">
+                <img src="data:image/png;base64,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" alt="Pet Travel and Care" class="brand-logo-img">
+            </a>
+
+            <div class="menu-overlay" id="menuOverlay"></div>
+           <nav class="nav-links" id="navLinks">
+                <button class="close-menu" id="closeMenu" aria-label="Close Menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <a href="#home" class="nav-link" data-i18n="nav_home">Αρχική</a>
+                <a href="#services" class="nav-link" data-i18n="nav_services">Υπηρεσίες</a>
+                <a href="#pricing" class="nav-link" data-i18n="nav_pricing">Τιμοκατάλογος</a>
+                <a href="#faqs" class="nav-link" data-i18n="nav_faqs">FAQs</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Επικοινωνία</a>
+                
+                <a href="tel:70001516" class="drawer-call-btn">
+                    <i class="fa-solid fa-phone"></i> <span data-i18n="mobile_call">Κλήση</span>
+                </a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="lang-switch-btn" id="langSwitch" aria-label="Switch Language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langLabel">EN</span>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="premium-est" data-i18n="est_year">ΑΠΟ ΤΟ 2008</div>
+        <div class="premium-subtitle" data-i18n="first_service">Η ΠΡΩΤΗ ΥΠΗΡΕΣΙΑ PET TRAVEL AND CARE ΣΤΗΝ ΚΥΠΡΟ</div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                
+                <h1 class="hero-title" data-i18n="hero_title">
+                    Η πιο ασφαλής φροντίδα και μετακίνηση για τον <span class="highlight">καλύτερό σας φίλο</span>.
+                </h1>
+
+                <p class="hero-description" data-i18n="hero_subtitle">
+                    Εξειδικευμένη φιλοξενία και καθημερινή φροντίδα στη Λευκωσία, καθώς και άνετο, κλιματιζόμενο Pet Taxi σε ολόκληρη την Κύπρο.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary" data-i18n="btn_explore">
+                        <i class="fa-solid fa-paw"></i> Οι Υπηρεσίες μας
+                    </a>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                
+                <h2 data-i18n="services_heading">Υπηρεσίες Υψηλών Προδιαγραφών</h2>
+                <p data-i18n="services_subheading">Προσαρμοσμένες στις ανάγκες των αγαπημένων σας κατοικιδίων, με αγάπη και επαγγελματισμό.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-badge" data-i18n="badge_nicosia">ΛΕΥΚΩΣΙΑ</span>
+                    <div>
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-van-shuttle"></i>
+                        </div>
+                        <h3 data-i18n="srv1_title">Pet Taxi</h3>
+                        <p data-i18n="srv1_desc">Ασφαλής και άνετη μεταφορά κατοικιδίων σε όλη την Κύπρο. Ειδικά διαμορφωμένα, κλιματιζόμενα οχήματα.</p>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv1_f1">Μεταφορά οπουδήποτε επιθυμείτε (κτηνίατρο, κομμωτήριο, πάρκα, ξενοδοχεία κ.ά.)</span></li>
+                        
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv1_f3">Πλήρης ασφάλεια και κλιματισμός</span></li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-badge" data-i18n="badge_nicosia">ΛΕΥΚΩΣΙΑ</span>
+                    <div>
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-house-chimney-user"></i>
+                        </div>
+                        <h3 data-i18n="srv2_title">Pet Care</h3>
+                        <p data-i18n="srv2_desc">Φροντίδα στο χώρο σας ή επίβλεψη όσο λείπετε στη δουλειά ή σε ταξίδι, αποκλειστικά για την επαρχία Λευκωσίας.</p>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv2_f1">Επισκέψεις κατ' οίκον και τάισμα</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv2_f2">Καθημερινή αναφορά και φωτογραφίες</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv2_f3">Χορήγηση φαρμακευτικής αγωγής</span></li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-badge" data-i18n="badge_nicosia">ΛΕΥΚΩΣΙΑ</span>
+                    <div>
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-dog"></i>
+                        </div>
+                        <h3 data-i18n="srv3_title">Dog Walking</h3>
+                        <p data-i18n="srv3_desc">Καθημερινές βόλτες γεμάτες άσκηση, κοινωνικοποίηση και παιχνίδι από έμπειρους pet handlers.</p>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv3_f1">Ατομικές ή ομαδικές βόλτες</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv3_f2">Ευέλικτο καθημερινό πρόγραμμα</span></li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-badge island" data-i18n="badge_island">ΠΑΓΚΥΠΡΙΑ</span>
+                    <div>
+                        <div class="service-icon-box">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <h3 data-i18n="srv4_title">Αεροδρόμια και Μετεγκατάσταση</h3>
+                        <p data-i18n="srv4_desc">Υποστήριξη για μεταφορά από και προς τα αεροδρόμια, καθώς και βοήθεια με τις απαραίτητες διαδικασίες ταξιδιού.</p>
+                    </div>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv4_f1">Παραλαβή από αεροδρόμιο</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv4_f2">Εγκεκριμένα κλουβιά μεταφοράς</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="srv4_f3">Άνεση χωρίς στρες</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                
+                <h2 data-i18n="pricing_heading">Τιμοκατάλογος Υπηρεσιών</h2>
+                <p data-i18n="pricing_subheading">Ξεκάθαρες χρεώσεις χωρίς κρυφά κόστη. Επιλέξτε την υπηρεσία που ταιριάζει στις ανάγκες σας.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="plan1_title">Pet Taxi (Εντός Πόλης)</h3>
+                        <p data-i18n="plan1_sub">Απλές μετακινήσεις εντός Λευκωσίας</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="from-text" data-i18n="from">από</span>
+                        <span class="amount">€40</span>
+                        <span class="unit" data-i18n="per_trip">/ διαδρομή</span>
+                    </div>
+                    <ul class="pricing-list">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan1_item1">Κτηνιατρείο και Pet Shop</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan1_item2">Κλιματιζόμενο όχημα</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan1_item3">Αναμονή κατόπιν συνεννόησης</span></li>
+<li><i class="fa-solid fa-check"></i> <span data-i18n="plan1_item4">Δωρεάν θέση συνεπιβάτη για τον ιδιοκτήτη</span></li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-secondary" data-i18n="btn_inquire">Ζητήστε Πληροφορίες</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card featured">
+                    <span class="pricing-ribbon" data-i18n="badge_popular">ΔΗΜΟΦΙΛΕΣ</span>
+                    <div class="pricing-header">
+                        <h3 data-i18n="plan2_title">Pet Care</h3>
+                        <p data-i18n="plan2_sub">Φροντίδα στο χώρο σας (Λευκωσία)</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="from-text" data-i18n="from">από</span>
+                        <span class="amount">€20</span>
+                        <span class="unit" data-i18n="per_visit">/ επίσκεψη</span>
+                    </div>
+                    <ul class="pricing-list">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan2_item1">Τάισμα και φρέσκο νερό</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan2_item2">Παιχνίδι και καθαρισμός χώρου</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan2_item3">Φωτογραφίες και Video update</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan2_item4">Χορήγηση φαρμάκων αν χρειάζεται</span></li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-primary" data-i18n="btn_inquire">Ζητήστε Πληροφορίες</a>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="plan3_title">Intercity and Airport</h3>
+                        <p data-i18n="plan3_sub">Υπεραστικές διαδρομές και Αεροδρόμια</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="from-text" data-i18n="from">από</span>
+                        <span class="amount">€99</span>
+                        <span class="unit" data-i18n="per_route">/ διαδρομή</span>
+                    </div>
+                    <ul class="pricing-list">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan3_item1">Παγκύπρια κάλυψη (Λάρνακα, Λεμεσός, Πάφος)</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan3_item2">Παραλαβή / Παράδοση Αεροδρομίου</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="plan3_item3">Ειδική φροντίδα κατά το ταξίδι</span></li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-secondary" data-i18n="btn_inquire">Ζητήστε Πληροφορίες</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-note-banner">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                    <strong data-i18n="pricing_note_title">Σημείωση:</strong>
+                    <span data-i18n="pricing_note_text"> Οι τιμές ενδέχεται να διαφέρουν ανάλογα με την απόσταση, το βάρος του ζώου και την ώρα εξυπηρέτησης. Επικοινωνήστε μαζί μας για ακριβή προσφορά.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faqs">
+        <div class="container">
+            <div class="section-header">
+                
+                <h2 data-i18n="faqs_heading">Συχνές Ερωτήσεις</h2>
+                <p data-i18n="faqs_subheading">Όλα όσα χρειάζεται να γνωρίζετε για τις υπηρεσίες και τη λειτουργία μας.</p>
+            </div>
+
+            <div class="faqs-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq1_q">Πότε γίνεται η πληρωμή και ποιοι είναι οι αποδεκτοί τρόποι;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq1_a">Η εξόφληση πραγματοποιείται προκαταβολικά με την οριστικοποίηση της συμφωνίας. Δεχόμαστε μετρητά, Revolut, QuickPay, καθώς και Contact Pay.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq2_q">Πώς ενημερώνομαι για τις επισκέψεις στο κατοικίδιό μου;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq2_a">Μετά από κάθε επίσκεψη λαμβάνετε αναλυτική αναφορά, η οποία περιλαμβάνει ενημερωτικό μήνυμα, φωτογραφίες ή βίντεο, προσφέροντάς σας απόλυτη ηρεμία.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq3_q">Πού φιλοξενείται το κατοικίδιό μου κατά την υπηρεσία Pet Care;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq3_a">Το κατοικίδιό σας παραμένει στην άνεση και την ασφάλεια του δικού σας σπιτιού, αποφεύγοντας το περιττό άγχος της μετακίνησης σε άγνωστο περιβάλλον.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq4_q">Ποιες περιοχές εξυπηρετείτε;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq4_a">Οι υπηρεσίες Pet Care και Pet Taxi πόλης παρέχονται αποκλειστικά στη Λευκωσία. Η υπηρεσία μεταφοράς από/προς αεροδρόμια, καταφύγια και ξενοδοχεία ζώων εξυπηρετεί όλη την Κύπρο.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq5_q">Τι είδους ζώα αναλαμβάνετε;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq5_a">Αναλαμβάνουμε τη φροντίδα όλων των κατοικιδίων, ανεξαρτήτως είδους ή ράτσας, εφόσον η διαχείρισή τους είναι πρακτικά ασφαλής.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq6_q">Ποια είναι η πολιτική σας σε περίπτωση ζημιών ή ατυχήματος;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq6_a">Η Pet Travel and Care φέρει ευθύνη αποκλειστικά για περιστατικά που προκύπτουν από αποδεδειγμένη αμέλεια του προσωπικού μας. Λόγω της απρόβλεπτης φύσης των ζώων, δεν φέρουμε ευθύνη για απρόσμενα συμβάντα (π.χ. φθορές επίπλων) ή ενέργειες τρίτων.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq7_q">Υπάρχει επιπλέον χρέωση τις επίσημες αργίες;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq7_a">Ναι, εφαρμόζεται επιπλέον χρέωση €10 για τις υπηρεσίες που παρέχονται στις εξής επίσημες αργίες: Πρωτοχρονιά (1/1), Θεοφάνεια (6/1), Καθαρά Δευτέρα, 25η Μαρτίου, 1η Απριλίου, Πάσχα (Κυριακή, Δευτέρα και Τρίτη), Εργατική Πρωτομαγιά (1/5), Αγίου Πνεύματος, Δεκαπενταύγουστος (15/8), 1η Οκτωβρίου, 28η Οκτωβρίου, καθώς και τα Χριστούγεννα (25 και 26/12).</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq8_q">Πώς διασφαλίζεται η ασφάλεια και η υγιεινή στο Pet Taxi;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq8_a">Τα οχήματά μας είναι ειδικά διαμορφωμένα, πλήρως κλιματιζόμενα και εξοπλισμένα με πιστοποιημένα κλουβιά ασφαλείας. Για την προστασία της υγείας όλων των ζώων, γίνεται αυστηρός καθαρισμός και απολύμανση του εξοπλισμού μετά από κάθε μεταφορά.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq9_q">Ο/Η φροντιστής μένει στο σπίτι μου κατά την απουσία μου;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq9_a">Όχι, δεν παρέχουμε διανυκτέρευση. Πραγματοποιούμε προγραμματισμένες επισκέψεις στο χώρο σας, προσαρμοσμένες στις ανάγκες του κατοικιδίου σας.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq10_q">Αναλαμβάνετε κατοικίδια με επιθετική συμπεριφορά;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq10_a">Για την απόλυτη ασφάλεια τόσο του προσωπικού μας όσο και των ίδιων των ζώων, δεν αναλαμβάνουμε τη φροντίδα ή μεταφορά κατοικιδίων με επιθετικές τάσεις.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq11_q">Ποιες ώρες πραγματοποιούνται οι επισκέψεις;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq11_a">Το ωράριό μας είναι ευέλικτο και προσαρμόζεται στο πρόγραμμά σας. Οι ακριβείς ώρες των επισκέψεων ορίζονται σε κοινή συμφωνία κατά το πρώτο μας ραντεβού γνωριμίας.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq12_q">Ποιος παρέχει την τροφή και τις προμήθειες του ζώου;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq12_a">Ο ιδιοκτήτης αναλαμβάνει να παρέχει όλη την απαραίτητη τροφή και τα αναλώσιμα. Παρακαλούμε βεβαιωθείτε ότι υπάρχει επαρκές απόθεμα για όλο το διάστημα της απουσίας σας.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq13_q">Πόσο συχνά επισκέπτεστε το κατοικίδιό μου;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq13_a">Η συχνότητα ορίζεται αποκλειστικά από εσάς. Συνήθως, οι σκύλοι χρειάζονται δύο επισκέψεις την ημέρα και οι γάτες μία. Φροντίζουμε πάντα να τηρούμε τον προτιμώμενο προγραμματισμό σας.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq14_q">Ποια είναι η πολιτική ακυρώσεων και επιστροφής χρημάτων;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                       <div class="faq-answer-inner" data-i18n="faq14_a">Εάν η ακύρωση γίνει τουλάχιστον 14 ημέρες πριν την προγραμματισμένη υπηρεσία, προσφέρεται πλήρης επιστροφή. Για ακυρώσεις σε διάστημα μικρότερο των 14 ημερών, τα χρήματα δεν επιστρέφονται, καθώς το ραντεβού έχει δεσμευτεί αποκλειστικά για εσάς, στερώντας τη διαθεσιμότητα από άλλους πελάτες.</div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faq15_q">Τι να κάνω αν καλέσω και δεν απαντήσετε;</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="faq15_a">Εάν δεν μπορέσουμε να απαντήσουμε άμεσα, παρακαλούμε αφήστε ένα μήνυμα στο φωνητικό κιβώτιο με τα στοιχεία σας, και θα σας καλέσουμε πίσω το συντομότερο δυνατό.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card-info">
+                    <h3 data-i18n="contact_info_title">Επικοινωνήστε μαζί μας</h3>
+                    <p data-i18n="contact_info_subtitle">Είμαστε πάντα στη διάθεσή σας για οποιαδήποτε πληροφορία ή διευκρίνιση σχετικά με το κατοικίδιό σας.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method-item">
+                            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4 data-i18n="contact_phone_title">Τηλέφωνο</h4>
+                                <a href="tel:70001516">70001516</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method-item">
+                            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 data-i18n="contact_area_title">Περιοχή</h4>
+                                <span data-i18n="contact_area_desc">Care: Λευκωσία | Travel: Παγκύπρια</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 style="color:#fff;">M.T. PET TRAVEL AND CARE</h3>
+                    <p data-i18n="footer_about">
+                        Επαγγελματική φροντίδα κατοικιδίων στη Λευκωσία και ασφαλές Pet Taxi σε ολόκληρη την Κύπρο.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4 data-i18n="footer_links_title">Γρήγοροι Σύνδεσμοι</h4>
+                    <ul>
+                        <li><a href="#home" data-i18n="nav_home">Αρχική</a></li>
+                        <li><a href="#services" data-i18n="nav_services">Υπηρεσίες</a></li>
+                        <li><a href="#pricing" data-i18n="nav_pricing">Τιμοκατάλογος</a></li>
+                        <li><a href="#faqs" data-i18n="nav_faqs">FAQs</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Επικοινωνία</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 data-i18n="footer_areas_title">Περιοχές Κάλυψης</h4>
+                    <ul>
+                        <li><span style="color:#fff;"><i class="fa-solid fa-location-dot" style="color:var(--primary);"></i> Pet Care:</span> <span data-i18n="footer_loc_nicosia">Λευκωσία</span></li>
+                        <li><span style="color:#fff;"><i class="fa-solid fa-taxi" style="color:var(--primary);"></i> Pet Taxi:</span> <span data-i18n="footer_loc_nicosia">Λευκωσία</span></li>
+                        <li><span style="color:#fff;"><i class="fa-solid fa-plane-departure" style="color:var(--primary);"></i> <span data-i18n="footer_loc_airports">Αεροδρόμια</span>:</span> <span data-i18n="footer_loc_islandwide">Παγκύπρια</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> M.T. Pet Travel and Care. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   
+
+    <script>
+        const translations = {
+           el: {
+                nav_home: "Αρχική",
+                nav_services: "Υπηρεσίες",
+                nav_pricing: "Τιμοκατάλογος",
+                nav_faqs: "Συχνές Ερωτήσεις",
+                nav_contact: "Επικοινωνία",
+                est_year: "ΑΠΟ ΤΟ 2008",
+                first_service: "Η ΠΡΩΤΗ ΥΠΗΡΕΣΙΑ PET TRAVEL AND CARE ΣΤΗΝ ΚΥΠΡΟ",
+                hero_title: "Η πιο ασφαλής φροντίδα και μετακίνηση για τον <span class='highlight'>καλύτερό σας φίλο</span>.",
+                hero_subtitle: "Εξειδικευμένη φροντίδα και Pet Taxi εντός Λευκωσίας, καθώς και ασφαλείς μεταφορές αεροδρομίων Παγκύπρια.",
+                btn_explore: "Οι Υπηρεσίες μας",
+                stat_safe: "Ασφάλεια",
+                stat_reach: "Εξυπηρέτηση",
+                stat_care: "Υποστήριξη",
+                
+                services_heading: "Υπηρεσίες Υψηλών Προδιαγραφών",
+                services_subheading: "Προσαρμοσμένες στις ανάγκες των αγαπημένων σας κατοικιδίων, <br class='desktop-br'>με αγάπη και επαγγελματισμό.",
+                badge_island: "ΠΑΓΚΥΠΡΙΑ",
+                badge_nicosia: "ΛΕΥΚΩΣΙΑ",
+                srv1_title: "Pet Taxi",
+                srv1_desc: "Ασφαλής και άνετη μεταφορά κατοικιδίων εντός Λευκωσίας. Ειδικά διαμορφωμένα, κλιματιζόμενα οχήματα.",
+                srv1_f1: "Μεταφορά οπουδήποτε επιθυμείτε (κτηνίατρο, κομμωτήριο, πάρκα, ξενοδοχεία κ.ά.)",
+                
+                srv1_f3: "Πλήρης ασφάλεια και κλιματισμός",
+                srv2_title: "Pet Care",
+                srv2_desc: "Φροντίδα στο χώρο σας ή επίβλεψη όσο λείπετε στη δουλειά ή σε ταξίδι, αποκλειστικά για την επαρχία Λευκωσίας.",
+                srv2_f1: "Επισκέψεις κατ' οίκον και τάισμα",
+                srv2_f2: "Καθημερινή αναφορά και φωτογραφίες",
+                srv2_f3: "Χορήγηση φαρμακευτικής αγωγής",
+                srv3_title: "Dog Walking",
+                srv3_desc: "Καθημερινές βόλτες γεμάτες άσκηση, κοινωνικοποίηση και παιχνίδι από έμπειρους pet handlers.",
+                srv3_f1: "Ατομικές ή ομαδικές βόλτες",
+                srv3_f2: "Ευέλικτο καθημερινό πρόγραμμα",
+                srv4_title: "Αεροδρόμιο και Μετεγκατάσταση",
+                srv4_desc: "Υποστήριξη για μεταφορά από και προς τα αεροδρόμια, καθώς και βοήθεια με τις απαραίτητες διαδικασίες ταξιδιού.",
+                srv4_f1: "Παραλαβή από αεροδρόμιο",
+                srv4_f2: "Εγκεκριμένα κλουβιά μεταφοράς",
+                srv4_f3: "Άνεση χωρίς στρες",
+                
+                pricing_heading: "Τιμοκατάλογος Υπηρεσιών",
+                pricing_subheading: "Ξεκάθαρες χρεώσεις χωρίς κρυφά κόστη. <br class='desktop-br'>Επιλέξτε την υπηρεσία που ταιριάζει στις ανάγκες σας.",
+                from: "από",
+                per_trip: "/ διαδρομή",
+                per_visit: "/ επίσκεψη",
+                per_route: "/ διαδρομή",
+                badge_popular: "ΔΗΜΟΦΙΛΕΣ",
+                btn_inquire: "Ζητήστε Πληροφορίες",
+                plan1_title: "Pet Taxi (Εντός Πόλης)",
+                plan1_sub: "Απλές μετακινήσεις εντός Λευκωσίας",
+                plan1_item1: "Ευέλικτες διαδρομές στον προορισμό της επιλογής σας",
+                plan1_item2: "Κλιματιζόμενο όχημα",
+                plan1_item3: "Αναμονή κατόπιν συνεννόησης",
+plan1_item4: "Δωρεάν θέση συνεπιβάτη για τον ιδιοκτήτη",
+                plan2_title: "Pet Care",
+                plan2_sub: "Φροντίδα στο χώρο σας (Λευκωσία)",
+                plan2_item1: "Τάισμα και φρέσκο νερό",
+                plan2_item2: "Παιχνίδι και καθαρισμός χώρου",
+                plan2_item3: "Φωτογραφίες και Video update",
+                plan2_item4: "Χορήγηση φαρμάκων αν χρειάζεται",
+                plan3_title: "Intercity και Airport",
+                plan3_sub: "Υπεραστικές διαδρομές και Αεροδρόμια",
+                plan3_item1: "Παγκύπρια κάλυψη (Λάρνακα, Λεμεσός, Πάφος)",
+                plan3_item2: "Παραλαβή / Παράδοση Αεροδρομίου",
+                plan3_item3: "Ειδική φροντίδα κατά το ταξίδι",
+                pricing_note_title: "Σημείωση:",
+                pricing_note_text: " Οι τιμές ενδέχεται να διαφέρουν ανάλογα με την απόσταση, το βάρος του ζώου και την ώρα εξυπηρέτησης. Επικοινωνήστε μαζί μας για ακριβή προσφορά.",
+                
+                faqs_heading: "Συχνές Ερωτήσεις",
+                faqs_subheading: "Όλα όσα χρειάζεται να γνωρίζετε για τις υπηρεσίες και τη λειτουργία μας.",
+                faq1_q: "Πότε γίνεται η πληρωμή και ποιοι είναι οι αποδεκτοί τρόποι;",
+                faq1_a: "Η εξόφληση πραγματοποιείται προκαταβολικά με την οριστικοποίηση της συμφωνίας. Δεχόμαστε μετρητά, Revolut, QuickPay, καθώς και Contact Pay.",
+                faq2_q: "Πώς ενημερώνομαι για τις επισκέψεις στο κατοικίδιό μου;",
+                faq2_a: "Μετά από κάθε επίσκεψη λαμβάνετε αναλυτική αναφορά, η οποία περιλαμβάνει ενημερωτικό μήνυμα, φωτογραφίες ή βίντεο, προσφέροντάς σας απόλυτη ηρεμία.",
+                faq3_q: "Πού φιλοξενείται το κατοικίδιό μου κατά την υπηρεσία Pet Care;",
+                faq3_a: "Το κατοικίδιό σας παραμένει στην άνεση και την ασφάλεια του δικού σας σπιτιού, αποφεύγοντας το περιττό άγχος της μετακίνησης σε άγνωστο περιβάλλον.",
+                faq4_q: "Ποιες περιοχές εξυπηρετείτε;",
+                faq4_a: "Οι υπηρεσίες Pet Care και Pet Taxi πόλης παρέχονται αποκλειστικά στη Λευκωσία. Η υπηρεσία μεταφοράς από/προς αεροδρόμια, καταφύγια και ξενοδοχεία ζώων εξυπηρετεί όλη την Κύπρο.",
+                faq5_q: "Τι είδους ζώα αναλαμβάνετε;",
+                faq5_a: "Αναλαμβάνουμε τη φροντίδα όλων των κατοικιδίων, ανεξαρτήτως είδους ή ράτσας, εφόσον η διαχείρισή τους είναι πρακτικά ασφαλής.",
+                faq6_q: "Ποια είναι η πολιτική σας σε περίπτωση ζημιών ή ατυχήματος;",
+                faq6_a: "Η Pet Travel and Care φέρει ευθύνη αποκλειστικά για περιστατικά που προκύπτουν από αποδεδειγμένη αμέλεια του προσωπικού μας. Λόγω της απρόβλεπτης φύσης των ζώων, δεν φέρουμε ευθύνη για απρόσμενα συμβάντα (π.χ. φθορές επίπλων) ή ενέργειες τρίτων.",
+                faq7_q: "Υπάρχει επιπλέον χρέωση τις επίσημες αργίες;",
+                faq7_a: "Ναι, εφαρμόζεται επιπλέον χρέωση €10 για τις υπηρεσίες που παρέχονται στις εξής επίσημες αργίες: Πρωτοχρονιά (1/1), Θεοφάνεια (6/1), Καθαρά Δευτέρα, 25η Μαρτίου, 1η Απριλίου, Πάσχα (Κυριακή, Δευτέρα και Τρίτη), Εργατική Πρωτομαγιά (1/5), Αγίου Πνεύματος, Δεκαπενταύγουστος (15/8), 1η Οκτωβρίου, 28η Οκτωβρίου, καθώς και τα Χριστούγεννα (25 και 26/12).",
+                faq8_q: "Πώς διασφαλίζεται η ασφάλεια και η υγιεινή στο Pet Taxi;",
+                faq8_a: "Τα οχήματά μας είναι ειδικά διαμορφωμένα, πλήρως κλιματιζόμενα και εξοπλισμένα με πιστοποιημένα κλουβιά ασφαλείας. Για την προστασία της υγείας όλων των ζώων, γίνεται αυστηρός καθαρισμός και απολύμανση του εξοπλισμού μετά από κάθε μεταφορά.",
+                faq9_q: "Ο/Η φροντιστής μένει στο σπίτι μου κατά την απουσία μου;",
+                faq9_a: "Όχι, δεν παρέχουμε διανυκτέρευση. Πραγματοποιούμε προγραμματισμένες επισκέψεις στο χώρο σας, προσαρμοσμένες στις ανάγκες του κατοικιδίου σας.",
+                faq10_q: "Αναλαμβάνετε κατοικίδια με επιθετική συμπεριφορά;",
+                faq10_a: "Για την απόλυτη ασφάλεια τόσο του προσωπικού μας όσο και των ίδιων των ζώων, δεν αναλαμβάνουμε τη φροντίδα ή μεταφορά κατοικιδίων με επιθετικές τάσεις.",
+                faq11_q: "Ποιες ώρες πραγματοποιούνται οι επισκέψεις;",
+                faq11_a: "Το ωράριό μας είναι ευέλικτο και προσαρμόζεται στο πρόγραμμά σας. Οι ακριβείς ώρες των επισκέψεων ορίζονται σε κοινή συμφωνία κατά το πρώτο μας ραντεβού γνωριμίας.",
+                faq12_q: "Ποιος παρέχει την τροφή και τις προμήθειες του ζώου;",
+                faq12_a: "Ο ιδιοκτήτης αναλαμβάνει να παρέχει όλη την απαραίτητη τροφή και τα αναλώσιμα. Παρακαλούμε βεβαιωθείτε ότι υπάρχει επαρκές απόθεμα για όλο το διάστημα της απουσίας σας.",
+                faq13_q: "Πόσο συχνά επισκέπτεστε το κατοικίδιό μου;",
+                faq13_a: "Η συχνότητα ορίζεται αποκλειστικά από εσάς. Συνήθως, οι σκύλοι χρειάζονται δύο επισκέψεις την ημέρα και οι γάτες μία. Φροντίζουμε πάντα να τηρούμε τον προτιμώμενο προγραμματισμό σας.",
+                faq14_q: "Ποια είναι η πολιτική ακυρώσεων και επιστροφής χρημάτων;",
+                faq14_a: "Εάν η ακύρωση γίνει τουλάχιστον 14 ημέρες πριν την προγραμματισμένη υπηρεσία, προσφέρεται πλήρης επιστροφή. Για ακυρώσεις σε διάστημα μικρότερο των 14 ημερών, τα χρήματα δεν επιστρέφονται, καθώς το ραντεβού έχει δεσμευτεί αποκλειστικά για εσάς, στερώντας τη διαθεσιμότητα από άλλους πελάτες.",
+faq15_q: "Τι να κάνω αν καλέσω και δεν απαντήσετε;",
+                faq15_a: "Εάν δεν μπορέσουμε να απαντήσουμε άμεσα, παρακαλούμε αφήστε ένα μήνυμα στο φωνητικό κιβώτιο με τα στοιχεία σας, και θα σας καλέσουμε πίσω το συντομότερο δυνατό.",
+                contact_info_title: "Επικοινωνήστε μαζί μας",
+                contact_info_subtitle: "Είμαστε πάντα στη διάθεσή σας για οποιαδήποτε πληροφορία ή διευκρίνιση σχετικά με το κατοικίδιό σας.",
+                contact_phone_title: "Τηλέφωνο",
+                contact_email_title: "Email",
+                contact_area_title: "Περιοχή",
+                contact_area_desc: "Λευκωσία, Κύπρος",
+                footer_about: "Επαγγελματική φροντίδα και Pet Taxi στη Λευκωσία, και ασφαλείς μεταφορές αεροδρομίων σε ολόκληρη την Κύπρο.",
+                footer_links_title: "Γρήγοροι Σύνδεσμοι",
+                footer_areas_title: "Περιοχές Κάλυψης",
+                footer_loc_nicosia: "Λευκωσία",
+                footer_loc_airports: "Αεροδρόμια",
+                footer_loc_islandwide: "Παγκύπρια",
+                mobile_call: "Κλήση"
+            },
+            en: {
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_pricing: "Price List",
+                nav_faqs: "FAQs",
+                nav_contact: "Contact",
+                est_year: "EST. 2008",
+                first_service: "THE FIRST PET TRAVEL AND CARE SERVICE IN CYPRUS",
+                hero_title: "Premium care and safe travel for your <span class='highlight'>beloved pet</span>.",
+                hero_subtitle: "Specialized pet care and inner-city Pet Taxi in Nicosia, plus safe airport transfers islandwide.",
+                btn_explore: "Explore Services",
+                stat_safe: "Safety First",
+                stat_reach: "Islandwide",
+                stat_care: "Support",
+                
+                services_heading: "Ultra-Premium Services",
+                services_subheading: "Tailored to the unique needs of your furry companions with love and professionalism.",
+                badge_island: "ISLANDWIDE",
+                badge_nicosia: "NICOSIA",
+                srv1_title: "Pet Taxi",
+                srv1_desc: "Safe and stress-free pet transportation within Nicosia in specially equipped, climate-controlled vehicles.",
+                srv1_f1: "Transport anywhere you need (vet, grooming, parks, hotels, etc.)",
+                
+                srv1_f3: "Full safety harness and AC",
+                srv2_title: "Pet Care",
+                srv2_desc: "On-site pet visits and dedicated attention while you are at work or traveling, exclusively in Nicosia.",
+                srv2_f1: "Home visits and feeding routine",
+                srv2_f2: "Daily photo and video updates",
+                srv2_f3: "Medication administration",
+                srv3_title: "Dog Walking",
+                srv3_desc: "Daily exercise, mental stimulation, and playful walks by experienced and loving pet handlers.",
+                srv3_f1: "Individual or group strolls",
+                srv3_f2: "Flexible daily scheduling",
+                srv4_title: "Airport and Relocation",
+                srv4_desc: "Reliable airport pickups and drop-offs with complete assistance for your pet's travel requirements.",
+                srv4_f1: "Airport meet and greet",
+                srv4_f2: "Approved travel crates",
+                srv4_f3: "Smooth and calm experience",
+                
+                pricing_heading: "Service Price List",
+                pricing_subheading: "Clear pricing with no hidden charges. Choose what best fits your pet's needs.",
+                from: "from",
+                per_trip: "/ trip",
+                per_visit: "/ visit",
+                per_route: "/ route",
+                badge_popular: "MOST POPULAR",
+                btn_inquire: "Inquire Now",
+                plan1_title: "City Pet Taxi",
+                plan1_sub: "Local rides within Nicosia",
+                plan1_item1: "Flexible rides to the destination of your choice",
+                plan1_item2: "Air-conditioned safe ride",
+                plan1_item3: "Wait time available upon request",
+plan1_item4: "Free passenger seat for the owner",
+                plan2_title: "Pet Care",
+                plan2_sub: "On-site (Nicosia only)",
+                plan2_item1: "Fresh food and water refill",
+                plan2_item2: "Playtime and litter clean-up",
+                plan2_item3: "Photo and video report",
+                plan2_item4: "Medication support if required",
+                plan3_title: "Intercity and Airport",
+                plan3_sub: "Long distance and airports",
+                plan3_item1: "Islandwide (Larnaca, Limassol, Paphos)",
+                plan3_item2: "Airport pickup and drop-off",
+                plan3_item3: "Careful monitoring during travel",
+                pricing_note_title: "Note:",
+                pricing_note_text: " Rates may vary based on exact mileage, pet size, and specific timing. Contact us for a personalized direct quote.",
+                
+                faqs_heading: "Frequently Asked Questions",
+                faqs_subheading: "Everything you need to know about our pet care and taxi services.",
+                faq1_q: "When is payment required and what payment methods do you accept?",
+                faq1_a: "Payment is required in advance upon finalizing our service agreement. We accept Cash, Revolut, QuickPay, and Contact Pay.",
+                faq2_q: "How will I be updated about the visits to my pet?",
+                faq2_a: "We provide comprehensive updates after every visit, including detailed messages, photos, or videos, so you can have complete peace of mind.",
+                faq3_q: "Where does my pet stay during the Pet Care service?",
+                faq3_a: "Your pet remains in the comfort, security, and familiar environment of your own home, minimizing their stress.",
+                faq4_q: "Which areas do you serve?",
+                faq4_a: "Our Pet Care and local Pet Taxi services operate exclusively within Nicosia. Our specialized transport service for airports, animal shelters, and pet hotels covers all of Cyprus.",
+                faq5_q: "What types of animals do you care for?",
+                faq5_a: "We love and care for all pets, regardless of species or breed, provided they are safely manageable.",
+                faq6_q: "What is your liability policy regarding property damage or pet incidents?",
+                faq6_a: "M.T. Pet Travel and Care holds liability solely for incidents arising directly from our team's proven negligence. Due to the natural unpredictability of animals, we cannot assume responsibility for unforeseen mishaps (e.g., property damage) or third-party actions.",
+                faq7_q: "Are there additional charges during public holidays?",
+                faq7_a: "Yes, a premium surcharge of €10 applies to all services rendered on the following official public holidays: New Year's Day (Jan 1), Epiphany (Jan 6), Clean Monday, March 25th, April 1st, Easter (Sunday, Monday and Tuesday), Labour Day (May 1), Holy Spirit Monday, Assumption Day (Aug 15), Cyprus Independence Day (Oct 1), October 28th, and Christmas Holidays (Dec 25 and 26).",
+                faq8_q: "How is the safety and hygiene of my pet ensured during transport?",
+                faq8_a: "We prioritize the highest safety standards. Our vehicles are fully climate-controlled and feature secure transit carriers. To maintain strict hygiene, all enclosures are meticulously cleaned and disinfected after every single ride.",
+                faq9_q: "Does the pet sitter stay overnight at my house?",
+                faq9_a: "No, we do not provide overnight stays. Our service focuses on scheduled, prearranged visits to your home based on your pet's needs.",
+                faq10_q: "Do you provide services for pets with aggressive behavior?",
+                faq10_a: "For the safety of our staff and other animals, we cannot accept or assume responsibility for pets exhibiting aggressive tendencies.",
+                faq11_q: "What time of day do the visits take place?",
+                faq11_a: "We offer flexible scheduling rather than fixed time slots. The exact visiting hours will be discussed and agreed upon during our initial introductory meeting.",
+                faq12_q: "Who is responsible for providing pet food and essential supplies?",
+                faq12_a: "The owner is responsible for providing all necessary food and supplies. Please ensure you leave an adequate amount to cover the entire duration of your absence.",
+                faq13_q: "How frequently will you visit my pet?",
+                faq13_a: "The frequency is entirely up to you. Generally, dogs require two visits per day, while cats do well with one. We will always strive to accommodate your preferred schedule.",
+                faq14_q: "What is your cancellation and refund policy?",
+                faq14_a: "Cancellations made at least 14 days prior to the scheduled service are eligible for a full refund. For cancellations made within 14 days of the appointment, payments are non-refundable, as that time slot was exclusively reserved for you and cannot be offered to another client on short notice.",
+faq15_q: "What should I do if I call and you don't answer?",
+                faq15_a: "If we are unable to answer immediately, please leave a voicemail with your details, and we will call you back as soon as possible.",
+                contact_info_title: "Get In Touch",
+                contact_info_subtitle: "We are always happy to help you and your furry companions. Reach out today!",
+                contact_phone_title: "Phone",
+                contact_email_title: "Email",
+                contact_area_title: "Area",
+                contact_area_desc: "Nicosia, Cyprus",
+                footer_about: "Professional pet care and taxi in Nicosia, and safe airport transfers all across Cyprus.",
+                footer_links_title: "Quick Links",
+                footer_areas_title: "Operating Areas",
+                footer_loc_nicosia: "Nicosia",
+                footer_loc_airports: "Airports",
+                footer_loc_islandwide: "Islandwide",
+                mobile_call: "Call"
+            }
+        };
+
+        let currentLang = 'el';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.getElementById('langLabel').textContent = lang === 'el' ? 'EN' : 'ΕΛ';
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        document.getElementById('langSwitch').addEventListener('click', () => {
+            const nextLang = currentLang === 'el' ? 'en' : 'el';
+            updateLanguage(nextLang);
+        });
+
+        // Navbar Scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu toggle with Overlay & Close Button
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            // Αποτρέπει το σκρολάρισμα της σελίδας από πίσω
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : ''; 
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu); // Κλείνει με κλικ στο σκοτεινό φόντο
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // FAQs Accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const isOpen = item.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    other.classList.remove('active');
+                    other.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Αυτόματη φόρτωση των σωστών κειμένων με το άνοιγμα της σελίδας
+        updateLanguage(currentLang);
+    </script>
+</body>
+</html>
